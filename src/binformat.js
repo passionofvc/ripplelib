@@ -51,7 +51,7 @@ var FIELDS_MAP = exports.fields = {
   1: { // Int16
     1: 'LedgerEntryType',
     2: 'TransactionType',
-    3: 'SignerWeight'    
+    3: 'SignerWeight'
   },
   2: { // Int32
     2: 'Flags',
@@ -134,7 +134,7 @@ var FIELDS_MAP = exports.fields = {
     7: 'HighLimit',
     8: 'Fee',
     9: 'SendMax',
-    10: 'DeliverMin',    
+    10: 'DeliverMin',
     16: 'MinimumOffer',
     17: 'RippleEscrow',
     18: 'DeliveredAmount'
@@ -251,6 +251,7 @@ exports.tx = {
   PaymentChannelCreate: [13].concat(base, [['Destination', REQUIRED], ['Amount', REQUIRED], ['SettleDelay', REQUIRED], ['PublicKey', REQUIRED], ['CancelAfter', OPTIONAL], ['DestinationTag', OPTIONAL]]),
   PaymentChannelFund: [14].concat(base, [['Channel', REQUIRED], ['Amount', REQUIRED], ['Expiration', OPTIONAL]]),
   PaymentChannelClaim: [15].concat(base, [['Channel', REQUIRED], ['Amount', OPTIONAL], ['Balance', OPTIONAL], ['Signature', OPTIONAL], ['PublicKey', OPTIONAL]]),
+  AccountDelete: [21].concat(base, [['Destination', REQUIRED], ['DestinationTag', OPTIONAL]]), //ttACCOUNT_DELETE    = 21
 };
 
 var sleBase = [['LedgerIndex', OPTIONAL], ['LedgerEntryType', REQUIRED], ['Flags', REQUIRED]];
