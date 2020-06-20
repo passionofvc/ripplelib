@@ -99,7 +99,7 @@ function Remote() {
   this.secrets = {};
 
   // cache keypairs.
-  this.keyPairs = { };  
+  this.keyPairs = { };
 
   // Cache for various ledgers.
   // XXX Clear when ledger advances.
@@ -359,7 +359,7 @@ Remote.prototype.setSecret = function (account, secret, id) {
 };
 
 
-// Generate KeyPair from given secret. 
+// Generate KeyPair from given secret.
 // id could be an address, or index of account family.
 Remote.prototype.generateKey =
 Remote.prototype.generateKeyPair = function(secret, id) {
@@ -371,7 +371,7 @@ Remote.prototype.generateKeyPair = function(secret, id) {
 }
 
 /**
- * Store a keypair 
+ * Store a keypair
  *
  * @param {String} account
  * @param {String | KeyPair} privatekey string or KeyPair
@@ -389,7 +389,7 @@ Remote.prototype.getKey =
 Remote.prototype.getKeyPair = function(account) {
   var key = this.keyPairs[account];
   if (!key) key = this.keyPairs[account] = this.generateKey(this.secrets[account]);
-  return key;  
+  return key;
 }
 
 Remote.prototype.addServer = function (options) {
@@ -1313,7 +1313,7 @@ Remote.accountRequest = function (command, options_, callback_) {
   }
 
   ['strict', 'queue', 'signer_lists'].forEach(function (key){
-    if (_options.hasOwnProperty(key)) request.message[key] = _options[key];  
+    if (_options.hasOwnProperty(key)) request.message[key] = _options[key];
   });
 
   request.callback(callback);
@@ -2607,7 +2607,8 @@ Remote.prototype.transaction = Remote.prototype.createTransaction = function (ty
     TrustSet: transaction.trustSet,
     OfferCreate: transaction.offerCreate,
     OfferCancel: transaction.offerCancel,
-    SetRegularkey: transaction.setRegularKey
+    SetRegularkey: transaction.setRegularKey,
+    AccountDelete: transaction.accountDelete,
   };
 
   var transactionConstructor = constructorMap[type];
