@@ -4,7 +4,7 @@
 const assert = require('assert');
 const fs = require('fs');
 
-const Ledger = require('ripplelib').Ledger;
+const Ledger = require('../src/index.js').Ledger;
 
 /**
 * @param ledger_index {Number}

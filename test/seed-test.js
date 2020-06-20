@@ -1,7 +1,7 @@
 /* eslint max-len: 0 */
 'use strict';
 const assert = require('assert');
-const Seed = require('ripplelib').Seed;
+const Seed = require('../src/index.js').Seed;
 
 function assert_helper(passphrase, address_or_nth, expected) {
   const seed = new Seed().parse_passphrase(passphrase);

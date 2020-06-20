@@ -4,10 +4,10 @@
 
 const _ = require('lodash');
 const addresses = require('./addresses');
-const Meta = require('ripplelib').Meta;
-const Amount = require('ripplelib').Amount;
-const SerializedObject = require('ripplelib').SerializedObject;
-const Types = require('ripplelib').types;
+const Meta = require('../../src/index.js').Meta;
+const Amount = require('../../src/index.js').Amount;
+const SerializedObject = require('../../src/index.js').SerializedObject;
+const Types = require('../../src/index.js').types;
 
 module.exports.FIAT_BALANCE = '10';
 module.exports.NATIVE_BALANCE = '55';

@@ -1,6 +1,6 @@
 var assert = require('assert');
-var Transaction = require('ripplelib').Transaction;
-var TransactionQueue = require('ripplelib').TransactionQueue;
+var Transaction = require('../src/index.js').Transaction;
+var TransactionQueue = require('../src/index.js').TransactionQueue;
 
 describe('Transaction queue', function() {
   it('Push transaction', function() {

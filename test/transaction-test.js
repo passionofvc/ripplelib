@@ -4,11 +4,11 @@
 
 const assert = require('assert');
 const lodash = require('lodash');
-const Transaction = require('ripplelib').Transaction;
-const TransactionQueue = require('ripplelib').TransactionQueue;
-const Remote = require('ripplelib').Remote;
-const Server = require('ripplelib').Server;
-const sjcl = require('ripplelib').sjcl;
+const Transaction = require('../src/index.js').Transaction;
+const TransactionQueue = require('../src/index.js').TransactionQueue;
+const Remote = require('../src/index.js').Remote;
+const Server = require('../src/index.js').Server;
+const sjcl = require('../src/index.js').sjcl;
 
 const transactionResult = {
   engine_result: 'tesSUCCESS',
@@ -864,7 +864,7 @@ describe('Transaction', function() {
     done();
   });
 
-  it('Get signature for multisign-transaction', function(done) {    
+  it('Get signature for multisign-transaction', function(done) {
     const remote = new Remote();
 
     remote.secrets = {
@@ -883,7 +883,7 @@ describe('Transaction', function() {
     const s = transaction.getSignatureFor(account);
 
     assert.strictEqual(s.Signer.Account, 'rpzT237Ctpaa58KieifoK8RyBmmRwEcfhK');
-    assert.strictEqual(s.Signer.SigningPubKey, '021BB94B1DCB9F728FAE7D32C62CCE28F829F04D2A8AA1C3D9BA35E7380CDB27B2');    
+    assert.strictEqual(s.Signer.SigningPubKey, '021BB94B1DCB9F728FAE7D32C62CCE28F829F04D2A8AA1C3D9BA35E7380CDB27B2');
     assert(/^[A-Z0-9]+$/.test(s.Signer.TxnSignature));
 
     done();

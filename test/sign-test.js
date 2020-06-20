@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const Seed = require('ripplelib').Seed;
+const Seed = require('../src/index.js').Seed;
 
 function _isNaN(n) {
   return typeof n === 'number' && isNaN(n);

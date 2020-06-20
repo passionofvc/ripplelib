@@ -3,14 +3,14 @@
 'use strict';
 
 const assert = require('assert-diff');
-const Remote = require('ripplelib').Remote;
-const Server = require('ripplelib').Server;
-const Transaction = require('ripplelib').Transaction;
-const UInt160 = require('ripplelib').UInt160;
-const Currency = require('ripplelib').Currency;
-const Amount = require('ripplelib').Amount;
-const PathFind = require('ripplelib')._test.PathFind;
-const Log = require('ripplelib')._test.Log;
+const Remote = require('../src/index.js').Remote;
+const Server = require('../src/index.js').Server;
+const Transaction = require('../src/index.js').Transaction;
+const UInt160 = require('../src/index.js').UInt160;
+const Currency = require('../src/index.js').Currency;
+const Amount = require('../src/index.js').Amount;
+const PathFind = require('../src/index.js')._test.PathFind;
+const Log = require('../src/index.js')._test.Log;
 
 let options, remote, callback;
 

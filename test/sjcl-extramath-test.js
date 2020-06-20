@@ -1,5 +1,5 @@
 var assert = require('assert');
-var sjcl   = require('ripplelib').sjcl;
+var sjcl   = require('../src/index.js').sjcl;
 
 describe('SJCL Extramath', function() {
   describe('setBitM', function() {

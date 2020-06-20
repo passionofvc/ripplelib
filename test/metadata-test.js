@@ -1,5 +1,5 @@
 var assert = require('assert');
-var Meta = require('ripplelib').Meta;
+var Meta = require('../src/index.js').Meta;
 
 describe('Meta', function() {
   var meta = new Meta(require('./fixtures/payment-iou.json').metadata);

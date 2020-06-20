@@ -3,10 +3,10 @@
 'use strict';
 
 const assert = require('assert-diff');
-const Remote = require('ripplelib').Remote;
-const Currency = require('ripplelib').Currency;
-const Amount = require('ripplelib').Amount;
-const Meta = require('ripplelib').Meta;
+const Remote = require('../src/index.js').Remote;
+const Currency = require('../src/index.js').Currency;
+const Amount = require('../src/index.js').Amount;
+const Meta = require('../src/index.js').Meta;
 const addresses = require('./fixtures/addresses');
 const fixtures = require('./fixtures/orderbook');
 

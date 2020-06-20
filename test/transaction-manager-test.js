@@ -5,11 +5,11 @@
 const ws = require('ws');
 const lodash = require('lodash');
 const assert = require('assert-diff');
-const sjcl = require('ripplelib').sjcl;
-const Remote = require('ripplelib').Remote;
-const SerializedObject = require('ripplelib').SerializedObject;
-const Transaction = require('ripplelib').Transaction;
-const TransactionManager = require('ripplelib')._test.TransactionManager;
+const sjcl = require('../src/index.js').sjcl;
+const Remote = require('../src/index.js').Remote;
+const SerializedObject = require('../src/index.js').SerializedObject;
+const Transaction = require('../src/index.js').Transaction;
+const TransactionManager = require('../src/index.js')._test.TransactionManager;
 
 const LEDGER = require('./fixtures/transactionmanager').LEDGER;
 const ACCOUNT = require('./fixtures/transactionmanager').ACCOUNT;

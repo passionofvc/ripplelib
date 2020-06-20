@@ -1,5 +1,5 @@
 var assert            = require('assert');
-var sjcl              = require('ripplelib').sjcl;
+var sjcl              = require('../src/index.js').sjcl;
 
 describe('ECDSA signing with recoverable public key', function(){
 

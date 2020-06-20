@@ -4,10 +4,10 @@
 
 var assert = require('assert');
 var BigNumber = require('bignumber.js');
-var SerializedObject = require('ripplelib').SerializedObject;
-var types = require('ripplelib').types;
-var Amount = require('ripplelib').Amount;
-var sjcl = require('ripplelib').sjcl;
+var SerializedObject = require('../src/index.js').SerializedObject;
+var types = require('../src/index.js').types;
+var Amount = require('../src/index.js').Amount;
+var sjcl = require('../src/index.js').sjcl;
 
 describe('Serialized types', function() {
   describe('Int8', function() {

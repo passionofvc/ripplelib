@@ -1,8 +1,8 @@
 /*eslint-disable */
 
 var assert   = require('assert');
-var currency = require('ripplelib').Currency;
-var timeUtil = require('ripplelib').utils.time;
+var currency = require('../src/index.js').Currency;
+var timeUtil = require('../src/index.js').utils.time;
 
 describe('Currency', function() {
   describe('json_rewrite', function() {

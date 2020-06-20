@@ -1,6 +1,6 @@
 var assert = require('assert');
-var Seed   = require('ripplelib').Seed;
-var KeyPair = require('ripplelib').KeyPair;
+var Seed   = require('../src/index.js').Seed;
+var KeyPair = require('../src/index.js').KeyPair;
 
 describe('KeyPair', function() {
   it('can generate an address', function () {

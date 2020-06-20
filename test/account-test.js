@@ -1,5 +1,6 @@
 var assert = require('assert');
-var Account = require('ripplelib').Account;
+//var Account = require('../src/index.js').Account;
+var Account = require('../src/index.js').Account;
 
 describe('Account', function(){
 
@@ -19,9 +20,9 @@ describe('Account', function(){
 
     it('should parse a hex-encoded public key as a UINT160', function(){
       assert('rKXCummUHnenhYudNb9UoJ4mGBR75vFcgz' === Account._publicKeyToAddress('025B32A54BFA33FB781581F49B235C0E2820C929FF41E677ADA5D3E53CFBA46332'));
-    
+
       assert('rLpq5RcRzA8FU1yUqEPW4xfsdwon7casuM' === Account._publicKeyToAddress('03BFA879C00D58CF55F2B5975FF9B5293008FF49BEFB3EE6BEE2814247BF561A23'));
-    
+
       assert('rP4yWwjoDGF2iZSBdAQAgpC449YDezEbT1' === Account._publicKeyToAddress('02DF0AB18930B6410CA9F55CB37541F1FED891B8EDF8AB1D01D8F23018A4B204A7'));
 
       assert('rLdfp6eoR948KVxfn6EpaaNTKwfwXhzSeQ' === Account._publicKeyToAddress('0310C451A40CAFFD39D6B8A3BD61BF65BCA55246E9DABC3170EBE431D30655B61F'));
@@ -39,7 +40,7 @@ describe('Account', function(){
             on: function(){},
             requestAccountInfo: function(address, callback) {
               if (address === 'rKXCummUHnenhYudNb9UoJ4mGBR75vFcgz') {
-                callback(null, { account_data: { 
+                callback(null, { account_data: {
                   Account: 'rKXCummUHnenhYudNb9UoJ4mGBR75vFcgz',
                   Flags: 65536,
                   LedgerEntryType: 'AccountRoot'
@@ -60,7 +61,7 @@ describe('Account', function(){
             on: function(){},
             requestAccountInfo: function(address, callback) {
               if (address === 'rKXCummUHnenhYudNb9UoJ4mGBR75vFcgz') {
-                callback(null, { account_data: { 
+                callback(null, { account_data: {
                   Account: 'rKXCummUHnenhYudNb9UoJ4mGBR75vFcgz',
                   Flags: parseInt(65536 | 0x00100000),
                   LedgerEntryType: 'AccountRoot'
@@ -81,7 +82,7 @@ describe('Account', function(){
             on: function(){},
             requestAccountInfo: function(address, callback) {
               if (address === 'rKXCummUHnenhYudNb9UoJ4mGBR75vFcgz') {
-                callback(null, { account_data: { 
+                callback(null, { account_data: {
                   Account: 'rKXCummUHnenhYudNb9UoJ4mGBR75vFcgz',
                   Flags: parseInt(65536 | 0x00100000),
                   LedgerEntryType: 'AccountRoot',
@@ -103,7 +104,7 @@ describe('Account', function(){
             on: function(){},
             requestAccountInfo: function(address, callback) {
               if (address === 'rKXCummUHnenhYudNb9UoJ4mGBR75vFcgz') {
-                callback(null, { account_data: { 
+                callback(null, { account_data: {
                   Account: 'rKXCummUHnenhYudNb9UoJ4mGBR75vFcgz',
                   Flags: parseInt(65536 | 0x00100000),
                   LedgerEntryType: 'AccountRoot',
@@ -125,7 +126,7 @@ describe('Account', function(){
             on: function(){},
             requestAccountInfo: function(address, callback) {
               if (address === 'rKXCummUHnenhYudNb9UoJ4mGBR75vFcgz') {
-                callback(null, { account_data: { 
+                callback(null, { account_data: {
                   Account: 'rKXCummUHnenhYudNb9UoJ4mGBR75vFcgz',
                   Flags: parseInt(65536 | 0x00100000),
                   LedgerEntryType: 'AccountRoot',

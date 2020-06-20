@@ -1,5 +1,5 @@
 var assert = require('assert');
-var RangeSet = require('ripplelib').RangeSet;
+var RangeSet = require('../src/index.js').RangeSet;
 
 describe('RangeSet', function() {
   it('add()', function() {

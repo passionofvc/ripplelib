@@ -1,6 +1,6 @@
 'use strict';
 var assert = require('assert');
-var convertBase = require('ripplelib').convertBase;
+var convertBase = require('../src/index.js').convertBase;
 
 // Test cases from RFC-1924 (a joke RFC)
 var BASE85 = ('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'

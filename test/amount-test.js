@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 'use strict';
 const assert = require('assert');
-const Amount = require('ripplelib').Amount;
-const UInt160 = require('ripplelib').UInt160;
+const Amount = require('../src/index.js').Amount;
+const UInt160 = require('../src/index.js').UInt160;
 
 
 describe('Amount', function() {

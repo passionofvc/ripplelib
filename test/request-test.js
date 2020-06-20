@@ -1,10 +1,10 @@
 'use strict';
 const assert = require('assert');
-const Request = require('ripplelib').Request;
-const Remote = require('ripplelib').Remote;
-const Server = require('ripplelib').Server;
-const Currency = require('ripplelib').Currency;
-const RippleError = require('ripplelib').RippleError;
+const Request = require('../src/index.js').Request;
+const Remote = require('../src/index.js').Remote;
+const Server = require('../src/index.js').Server;
+const Currency = require('../src/index.js').Currency;
+const RippleError = require('../src/index.js').RippleError;
 
 function makeServer(url) {
   const server = new Server(new process.EventEmitter(), url);

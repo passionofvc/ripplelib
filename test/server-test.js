@@ -5,9 +5,9 @@
 const _ = require('lodash');
 const assert = require('assert');
 const ws = require('ws');
-const Remote = require('ripplelib').Remote;
-const Server = require('ripplelib').Server;
-const Request = require('ripplelib').Request;
+const Remote = require('../src/index.js').Remote;
+const Server = require('../src/index.js').Server;
+const Request = require('../src/index.js').Request;
 
 describe('Server', function() {
   it('Server constructor - invalid options', function() {
