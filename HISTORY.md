@@ -1,3 +1,7 @@
+##1.2.6
++ add https://github.com/xrp-community/standards-drafts/issues/8
++ Add support for AccountDelete https://xrpl.org/accountdelete.html
+
 ## 1.2.5
 + Make orderbook limit configurable.
 + Update Bignumber.js to v4.0.2
