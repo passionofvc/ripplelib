@@ -122,6 +122,9 @@ Transaction.flags = {
     NoRippleDirect: 0x00010000,
     PartialPayment: 0x00020000,
     LimitQuality: 0x00040000
+  },
+  AccountDelete: {
+    NoRippleDirect: 0x00010000,
   }
 };
 
@@ -395,8 +398,8 @@ Transaction.prototype.complete = function () {
   }
 
   if (typeof this.tx_json.SigningPubKey === 'undefined') {
-    if (this._multiSign) { 
-      this.tx_json.SigningPubKey = ''; 
+    if (this._multiSign) {
+      this.tx_json.SigningPubKey = '';
     } else {
       try {
         var key = this.getKey();
@@ -422,8 +425,8 @@ Transaction.prototype.complete = function () {
         var num = this._signerNum || 2; //default to 2-signatures
         this.tx_json.Fee = String(Number(fee) * (num + 1));
       } else {
-        this.tx_json.Fee = fee;  
-      }      
+        this.tx_json.Fee = fee;
+      }
     }
   }
 
@@ -530,7 +533,7 @@ Transaction.prototype.multiSignFor = function(account) {
 
 Transaction.prototype.addSignature = function(signer) {
   if (! Array.isArray(this.tx_json.Signers)) {
-    this.tx_json.Signers = [];  
+    this.tx_json.Signers = [];
   }
   this.tx_json.Signers.push(signer);
   if (this.tx_json.Signers.length > this._maxSignerNum) {
@@ -890,7 +893,7 @@ Transaction.prototype.addMemo = function (options_) {
     } else {
       memo.MemoData = utils.convertStringToHex(memoData);
     }
-    
+
   }
 
   this.tx_json.Memos = (this.tx_json.Memos || []).concat({ Memo: memo });
@@ -1092,7 +1095,7 @@ Transaction.prototype.signerListSet = function (options_) {
       SignerEntry: {
         Account: uInt160.to_json(),
         SignerWeight: value
-      }      
+      }
     }
   }
 
@@ -1232,7 +1235,7 @@ Transaction.prototype.payment = function (options_) {
  * @param [Number|Date] cancel after
  * @param [Number|Date] finish after
  */
-Transaction.prototype.escrowCreate = function (options_) {  
+Transaction.prototype.escrowCreate = function (options_) {
   var options = undefined;
 
   if (typeof options_ === 'object') {
@@ -1288,7 +1291,7 @@ Transaction.prototype.escrowCreate = function (options_) {
  * @param {String} condition
  * @param {String} fulfillment
  */
-Transaction.prototype.escrowFinish = function (options_) {  
+Transaction.prototype.escrowFinish = function (options_) {
   var options = undefined;
 
   if (typeof options_ === 'object') {
@@ -1329,7 +1332,7 @@ Transaction.prototype.escrowFinish = function (options_) {
  * @param {String} owner account of the escrow
  * @param [Number] sequence of the txn that create the escrow
  */
-Transaction.prototype.escrowCancel = function (options_) {  
+Transaction.prototype.escrowCancel = function (options_) {
   var options = undefined;
 
   if (typeof options_ === 'object') {
@@ -1720,6 +1723,46 @@ Transaction.prototype.getSummary = Transaction.prototype.summary = function () {
   }
 
   return txSummary;
+};
+
+/**
+ * Construct a 'AccountDelete' transaction
+ *
+ * Relevant setters:
+ *  - setSourceTag()
+ *  - setDestinationTag()
+ *  - setFlags()
+ *
+ *  @param {String} source account
+ *  @param {String} destination account
+ *  @param {Amount} payment amount
+ */
+
+Transaction.prototype.accountDelete = function (options_) {
+  var options = undefined;
+
+  if (typeof options_ === 'object') {
+    options = lodash.merge({}, options_);
+
+    if (lodash.isUndefined(options.account)) {
+      options.account = options.src || options.from;
+    }
+    if (lodash.isUndefined(options.destination)) {
+      options.destination = options.dst || options.to;
+    }
+  } else {
+    options = {
+      account: arguments[0],
+      destination: arguments[1]
+    };
+  }
+
+  this.setType('AccountDelete');
+  this.setAccount(options.account);
+  this.setDestination(options.destination);
+  this.setFixedFee(5000000); //fixed fee 5XRP
+
+  return this;
 };
 
 exports.Transaction = Transaction;
