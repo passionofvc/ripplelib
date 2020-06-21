@@ -213,7 +213,7 @@ TransactionManager.prototype.getPending = function () {
 };
 
 /**
- * Legacy code. Update transaction status after excessive ledgers pass. 
+ * Legacy code. Update transaction status after excessive ledgers pass.
  *
  * @param {Object} ledger data
  * @api private
@@ -316,7 +316,7 @@ TransactionManager.prototype._resubmit = function (pending) {
           break;
         default:
           if (m.result === 'tefALREADY' || m.result === 'tefPAST_SEQ') next();
-          else next(true); //break the submission series.  
+          else next(true); //break the submission series.
       }
     });
 
@@ -342,6 +342,14 @@ TransactionManager.prototype._prepareRequest = function (tx) {
 
     var serialized = tx.serialize();
     submitRequest.tx_blob(serialized.to_hex());
+    // TODO: fail_hard
+    // AccountDelete tx will cost 5 XRP fee even delete operation failed
+    // To greatly reduce the chances of paying the high transaction cost if the account cannot be deleted
+    // submit the transaction with fail_hard enabled
+    // If true, and the transaction fails locally, do not retry or relay the transaction to other servers
+    if (tx.tx_json.TransactionType === 'AccountDelete') {
+        submitRequest.fail_hard(true);
+    }
 
     var hash = tx.hash(null, null, serialized);
     tx.addId(hash);
@@ -430,7 +438,7 @@ TransactionManager.prototype._request = function (tx) {
       case 'tel':
         // do nothing;
         break;
-      case 'tem':  
+      case 'tem':
       default:
         submissionError(message);
     }

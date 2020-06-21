@@ -398,6 +398,12 @@ Request.prototype.txBlob = function (json) {
   return this;
 };
 
+//fail_hard
+Request.prototype.failHard = function (fail_hard) {
+  this.message.fail_hard = fail_hard;
+  return this;
+};
+
 Request.prototype.rippleState = function (account, issuer, currency) {
   this.message.ripple_state = {
     currency: currency,
